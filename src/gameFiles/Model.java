@@ -1,3 +1,5 @@
+package gameFiles;
+
 import java.util.InputMismatchException;
 import java.util.LinkedList;
 
@@ -7,22 +9,18 @@ import java.util.LinkedList;
 public class Model {
     private static LinkedList<Scene> timeline = new LinkedList<Scene>();
 
-    public Scene getScene(int i){
-        if (i > timeline.size()){
+    public Scene getScene(int i) {
+        if (i > timeline.size()) {
             throw new ArrayIndexOutOfBoundsException("that index has no corresponding scene.");
-        }
-
-        else{
+        } else {
             return timeline.get(i);
         }
     }
 
-    private void newScene(Scene s){
-        if (timeline.contains(s)){
+    private void newScene(Scene s) {
+        if (timeline.contains(s)) {
             throw new InputMismatchException("that scene already exists");
-        }
-
-        else{
+        } else {
             timeline.add(s);
         }
     }
