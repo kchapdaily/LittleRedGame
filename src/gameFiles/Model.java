@@ -1,5 +1,3 @@
-import java.util.InputMismatchException;
-import java.util.LinkedList;
 import java.util.Observable;
 
 /**
@@ -7,30 +5,25 @@ import java.util.Observable;
  */
 public class Model extends Observable{
 
-    private static LinkedList<Scene> timeline = new LinkedList<Scene>();
+    private Scene[] sceneBuffer;
+    private int sceneBufferID;
 
-    public Scene getScene(int i){
-        if (i > timeline.size()){
-            throw new ArrayIndexOutOfBoundsException("index " + i + " has no corresponding scene.");
-        }
+    public Model() {
+        sceneBuffer = new Scene[2];
+        sceneBuffer[0] = null;
+        sceneBuffer[1] = null;
 
-        else{
-            return timeline.get(i);
-        }
-    }
+        sceneBufferID = 0;
 
-    public void newScene(Scene s){
-        if (timeline.contains(s)){
-            throw new InputMismatchException("attempted to add duplicate scene");
-        }
-
-        else{
-            timeline.add(s);
-        }
     }
 
     public void evaluateGameState(){
         notifyObservers(/*changed timeline scene*/);
+    }
+
+    public void swapSceneBuffer(){
+        sceneBuffer[sceneBufferID] = null;
+        sceneBufferID = (sceneBufferID + 1) % 2;
     }
 
 } //Model

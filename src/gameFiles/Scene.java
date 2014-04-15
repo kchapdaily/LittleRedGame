@@ -4,10 +4,17 @@ import java.awt.*;
  * Created by kevin on 4/11/14.
  */
 public class Scene {
-    private int ID = 99999999;
-    private Image sceneImage = null;
-    private String storyText = "";
+    private int ID;
+    private Image sceneImage;
+    private String storyText;
     private String choices[];
+
+    public Scene() {
+        ID = 9999;
+        sceneImage = null;
+        storyText = "";
+        choices = new String[2];
+    }
 
     public void generateChoices(){
 
