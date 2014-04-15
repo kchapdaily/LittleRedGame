@@ -11,8 +11,8 @@ public class Model extends Observable{
         addObserver(v);             // Add view as an Observer of this model
     }
 
-    public String getCurrentSceneID() {
-        return currentScene.getID();
+    public Scene getCurrentScene() {
+        return currentScene;
     }
 
     public void loadNewScene(String sceneID) {

@@ -20,47 +20,18 @@ public class Controller implements Observer {
         model.loadNewScene(TITLE_SCENE_ID);
     }
 
-    private String getNextScene(String userResponse) {
-        int intSceneID = Integer.parseInt(model.getCurrentSceneID());
-        switch (intSceneID) {
-            case 0:
-                if (userResponse.equalsIgnoreCase("A")) {
-                } else if (userResponse.equalsIgnoreCase("B")) {
-                } else if (userResponse.equalsIgnoreCase("C")) {
-                } else {
-                    return TITLE_SCENE_ID;
-                }
-            case 1:
-                if (userResponse.equalsIgnoreCase("A")) {
-                } else if (userResponse.equalsIgnoreCase("B")) {
-                } else if (userResponse.equalsIgnoreCase("C")) {
-                } else {
-                    return TITLE_SCENE_ID;
-                }
-            case 2:
-                if (userResponse.equalsIgnoreCase("A")) {
-                } else if (userResponse.equalsIgnoreCase("B")) {
-                } else if (userResponse.equalsIgnoreCase("C")) {
-                } else {
-                    return TITLE_SCENE_ID;
-                }
-            case 3:
-                if (userResponse.equalsIgnoreCase("A")) {
-                } else if (userResponse.equalsIgnoreCase("B")) {
-                } else if (userResponse.equalsIgnoreCase("C")) {
-                } else {
-                    return TITLE_SCENE_ID;
-                }
-            default:
-                System.out.println("Invalid Scene Accessed");
-                return TITLE_SCENE_ID;
+    private String getNextScene(int choiceNumber) {
+        if (choiceNumber == -1) {
+            System.out.println("What button did you just press?!?");
+            return TITLE_SCENE_ID;
         }
+        return model.getCurrentScene().getChoiceSceneRedirect(choiceNumber);
     }
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("Controller: Received choice " + arg + " from View for Scene " + model.getCurrentSceneID() + ".");
-        String newSceneID = getNextScene((String) arg);
+        System.out.println("Controller: Received choice " + arg + " from View for Scene " + model.getCurrentScene().getID() + ".");
+        String newSceneID = getNextScene((Integer) arg);
         model.loadNewScene(newSceneID);
     }
 } //Controller

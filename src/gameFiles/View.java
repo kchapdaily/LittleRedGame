@@ -9,15 +9,12 @@ import java.util.Observer;
 
 public class View extends Observable implements Observer, ActionListener {
 
-    private String response;
-
     private JFrame game_frame;
     private JLabel label;
     private JButton responseButton1, responseButton2, responseButton3;
 
     // Default Constructor
     public View() {
-        response = "";
         createFrame();
     }
 
@@ -56,7 +53,9 @@ public class View extends Observable implements Observer, ActionListener {
         responseButton3 = new JButton("C");
         responseButton3.addActionListener(this);
 
-        JTextArea responseTextArea1 = new JTextArea("Response This is a test to see if all of the letters will fit in the text box on not go off of the screen");
+        JTextArea responseTextArea1 = new JTextArea("Response This is " +
+                "a test to see if all of the letters will fit in the text " +
+                "box on not go off of the screen");
         responseTextArea1.setSize(new Dimension(325, 500));
         responseTextArea1.setLineWrap(true);
         responseTextArea1.setWrapStyleWord(true);
@@ -140,14 +139,16 @@ public class View extends Observable implements Observer, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        int response;
         if (e.getSource() == responseButton1) {
-            response = "A";
+            response = 0;
         } else if (e.getSource() == responseButton2) {
-            response = "B";
+            response = 1;
         } else if (e.getSource() == responseButton3) {
-            response = "C";
+            response = 2;
+        } else {
+            response = -1;
         }
-        System.out.println("View: User pressed button " + response + ".");
 
         // Notify Controller
         setChanged();

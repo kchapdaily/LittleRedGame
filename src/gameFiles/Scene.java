@@ -8,13 +8,15 @@ public class Scene {
     private String ID;
     private ImageIcon sceneImage;
     private String storyText;
-    private String choices[];
+    private String choiceText[];
+    private String choiceSceneRedirect[];
 
     public Scene() {
         ID = "999";
         sceneImage = null;
         storyText = "";
-        choices = new String[2];
+        choiceText = new String[3];
+        choiceSceneRedirect = new String[3];
     }
 
     public void loadScene(String sceneID) {
@@ -55,7 +57,11 @@ public class Scene {
         return this.storyText;
     }
 
-    public String[] getChoices(){
-        return this.choices;
+    public String[] getChoiceText() {
+        return this.choiceText;
+    }
+
+    public String getChoiceSceneRedirect(int choice) {
+        return this.choiceSceneRedirect[choice];
     }
 }
