@@ -1,56 +1,58 @@
-import java.awt.*;
+package gameFiles;
 
-/**
- * Created by kevin on 4/11/14.
- */
+import javax.swing.*;
+
 public class Scene {
-    private int ID;
-    private Image sceneImage;
+
+    // Private data members
+    private String ID;
+    private ImageIcon sceneImage;
     private String storyText;
     private String choices[];
 
     public Scene() {
-        ID = 9999;
+        ID = "999";
         sceneImage = null;
         storyText = "";
         choices = new String[2];
     }
 
-    public void generateChoices(){
+    public void loadScene(String sceneID) {
+        this.ID = sceneID;
+        loadImage();
+        loadStoryText();
+        loadChoices();
+    }
+
+    private void loadImage() {
+        String imagePath = "res/img/imgLabel/" + ID + ".jpg";
+        java.net.URL imageURL = getClass().getResource(imagePath);
+        if (imageURL != null) {
+            sceneImage = new ImageIcon(imageURL);
+        } else {
+            System.err.println("Couldn't find file: " + imagePath);
+            sceneImage = null;
+        }
+    }
+
+    private void loadStoryText() {
 
     }
 
-    public void loadImages(){
+    private void loadChoices() {
 
     }
 
-    public void setID(int x){
-        //check to see if 'x' is inbounds
-        this.ID = x;
+    public String getID() {
+        return ID;
     }
 
-    public int getID(){
-        return this.ID;
-    }
-
-    public void setSceneImage(/*something*/){
-        //stuff
-    }
-
-    public Image getSceneImage(){
+    public ImageIcon getSceneImage() {
         return this.sceneImage;
-    }
-
-    public void setStoryText(String s){
-        this.storyText = s;
     }
 
     public String getStoryText(){
         return this.storyText;
-    }
-
-    public void setChoices(String s){
-        //stuff
     }
 
     public String[] getChoices(){

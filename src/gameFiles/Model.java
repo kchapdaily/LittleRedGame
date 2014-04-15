@@ -1,29 +1,26 @@
+package gameFiles;
+
 import java.util.Observable;
 
-/**
- * Created by kevin on 4/11/14.
- */
 public class Model extends Observable{
 
-    private Scene[] sceneBuffer;
-    private int sceneBufferID;
+    private Scene currentScene;
 
-    public Model() {
-        sceneBuffer = new Scene[2];
-        sceneBuffer[0] = null;
-        sceneBuffer[1] = null;
-
-        sceneBufferID = 0;
-
+    public Model(View v) {
+        currentScene = new Scene(); // Assign currentScene to null
+        addObserver(v);             // Add view as an Observer of this model
     }
 
-    public void evaluateGameState(){
-        notifyObservers(/*changed timeline scene*/);
+    public String getCurrentSceneID() {
+        return currentScene.getID();
     }
 
-    public void swapSceneBuffer(){
-        sceneBuffer[sceneBufferID] = null;
-        sceneBufferID = (sceneBufferID + 1) % 2;
-    }
+    public void loadNewScene(String sceneID) {
+        System.out.println("Model: Loading Scene " + sceneID + "...");
+        currentScene.loadScene(sceneID);
 
+        // Pass the Scene to the View
+        setChanged();
+        notifyObservers(currentScene);
+    }
 } //Model

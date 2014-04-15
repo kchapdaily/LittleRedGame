@@ -2,10 +2,24 @@ package gameFiles;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
 
-public class View {
+public class View extends Observable implements Observer, ActionListener {
+
+    private String response;
 
     private JFrame game_frame;
+    private JLabel label;
+    private JButton responseButton1, responseButton2, responseButton3;
+
+    // Default Constructor
+    public View() {
+        response = "";
+        createFrame();
+    }
 
     public void createFrame() {
 
@@ -35,9 +49,13 @@ public class View {
         JPanel responsePanel2 = new JPanel();
         JPanel responsePanel3 = new JPanel();
 
-        JButton responseButton1 = new JButton("A");
-        JButton responseButton2 = new JButton("B");
-        JButton responseButton3 = new JButton("C");
+        responseButton1 = new JButton("A");
+        responseButton1.addActionListener(this);
+        responseButton2 = new JButton("B");
+        responseButton2.addActionListener(this);
+        responseButton3 = new JButton("C");
+        responseButton3.addActionListener(this);
+
         JTextArea responseTextArea1 = new JTextArea("Response This is a test to see if all of the letters will fit in the text box on not go off of the screen");
         responseTextArea1.setSize(new Dimension(325, 500));
         responseTextArea1.setLineWrap(true);
@@ -83,8 +101,8 @@ public class View {
 
 
         //Image area
-        ImageIcon image = createImageIcon("res/img/image.jpeg");
-        JLabel label = new JLabel("", image, JLabel.CENTER);
+        ImageIcon image = createImageIcon("res/img/imgLabel/000.jpg");
+        label = new JLabel("", image, JLabel.CENTER);
 
 
         //
@@ -95,6 +113,7 @@ public class View {
         game_frame.getContentPane().add(label, BorderLayout.WEST);
         game_frame.getContentPane().add(userPanel, BorderLayout.EAST);
         game_frame.setResizable(false);
+        game_frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         game_frame.pack();
     }
 
@@ -108,4 +127,30 @@ public class View {
         }
     }
 
+    @Override
+    public void update(Observable o, Object arg) {
+        // Scene whose data members need to be loaded
+        Scene s = (Scene) arg;
+        System.out.println("View: Received Scene " + s.getID() + " from Model.");
+
+        // Update visuals
+        label.setIcon(null);
+        label.setIcon(s.getSceneImage());
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == responseButton1) {
+            response = "A";
+        } else if (e.getSource() == responseButton2) {
+            response = "B";
+        } else if (e.getSource() == responseButton3) {
+            response = "C";
+        }
+        System.out.println("View: User pressed button " + response + ".");
+
+        // Notify Controller
+        setChanged();
+        notifyObservers(response);
+    }
 }

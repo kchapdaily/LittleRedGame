@@ -1,12 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="232afe86-bc7d-4f09-bafb-dea5ecbea698" name="Default" comment="update so chris can get up to date&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller.java" afterPath="$PROJECT_DIR$/src/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model.java" afterPath="$PROJECT_DIR$/src/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scene.java" afterPath="$PROJECT_DIR$/src/Scene.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.java" afterPath="$PROJECT_DIR$/src/main.java" />
+    <list default="true" id="232afe86-bc7d-4f09-bafb-dea5ecbea698" name="Default" comment="Added 73 images from Zach's Flash Drive.&#10;Created res file structure&#10;&#10;Controller controls Model.&#10;Model notifies View.&#10;View notifies Controller.&#10;&#10;Need to fix a lot of the View to accommodate Zach.&#10;Need to add story text and choices to scene loaders.&#10;Need to complete lookup table for getNextScene method in Controller.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/000.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/001.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/002.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/003.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/004.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/005.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/006.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/007.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/008.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/009.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/010.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/011.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/012.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/013.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/014.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/015.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/016.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/017.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/018.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/019.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/020.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/021.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/022.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/023.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/024.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/025.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/027.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/029.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/030.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/031.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/032.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/034.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/035.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/036.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/037.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/038.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/039.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/040.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/041.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/042.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/044.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/045.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/046.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/047.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/048.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/049.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/050.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/051.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/052.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/053.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/054.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/055.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/056.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/057.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/058.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/060.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/061.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/062.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/063.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/064.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/065.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/066.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/067.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/068.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/069.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgLabel/070.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/other/Background.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgButton/Pressed Button.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/other/Pressed Window.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgButton/Selected Button.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/other/Selected Window.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gameFiles/res/img/imgButton/Static Button.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="DELETED" beforePath="B:\Chris\IdeaProjects\LittleRedGame\src\gameFiles\res\img\image.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="B:\Chris\IdeaProjects\LittleRedGame\src\main.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameFiles/Controller.java" afterPath="$PROJECT_DIR$/src/gameFiles/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameFiles/Model.java" afterPath="$PROJECT_DIR$/src/gameFiles/Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameFiles/Scene.java" afterPath="$PROJECT_DIR$/src/gameFiles/Scene.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameFiles/View.java" afterPath="$PROJECT_DIR$/src/gameFiles/View.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameFiles/main.java" afterPath="$PROJECT_DIR$/src/gameFiles/main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LittleRedGame.iws" />
@@ -25,7 +100,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
         <option name="NOTIFY_UNCAUGHT" value="true" />
@@ -61,9 +136,9 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <breakpoint_rules />
-    <ui_properties />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true" />
+    <breakpoint_rules converted="true" />
+    <ui_properties converted="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -72,62 +147,61 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="main.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main.java">
+        <entry file="file://$PROJECT_DIR$/src/gameFiles/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="49" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller.java">
+      <file leaf-file-name="Controller.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/gameFiles/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="6" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Model.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="28" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+            <state vertical-scroll-proportion="0.816" vertical-offset="0" max-vertical-offset="1224">
+              <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#242#249#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Scene.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Scene.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="21" selection-start="256" selection-end="256" vertical-scroll-proportion="0.2963526" vertical-offset="0" max-vertical-offset="870">
-              <folding>
-                <element signature="e#324#325#0" expanded="true" />
-                <element signature="e#393#394#0" expanded="true" />
-                <element signature="e#418#419#0" expanded="true" />
-                <element signature="e#448#449#0" expanded="true" />
-                <element signature="e#552#553#0" expanded="true" />
-                <element signature="e#590#591#0" expanded="true" />
-                <element signature="e#631#632#0" expanded="true" />
-                <element signature="e#665#666#0" expanded="true" />
-                <element signature="e#700#701#0" expanded="true" />
-                <element signature="e#737#738#0" expanded="true" />
-                <element signature="e#833#834#0" expanded="true" />
-                <element signature="e#868#869#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="View.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View.java">
+        <entry file="file://$PROJECT_DIR$/src/gameFiles/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="17" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2737">
+              <caret line="133" column="67" selection-start-line="133" selection-start-column="67" selection-end-line="133" selection-end-column="67" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Model.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gameFiles/Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+              <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+              <folding>
+                <element signature="e#339#340#0" expanded="true" />
+                <element signature="e#382#383#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Scene.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gameFiles/Scene.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1037">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#974#975#0" expanded="true" />
+                <element signature="e#999#1000#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -151,14 +225,19 @@
         <option value="$PROJECT_DIR$/src/Controller.java" />
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/Scene.java" />
+        <option value="$PROJECT_DIR$/src/gameFiles/main.java" />
+        <option value="$PROJECT_DIR$/src/gameFiles/Model.java" />
+        <option value="$PROJECT_DIR$/src/gameFiles/View.java" />
+        <option value="$PROJECT_DIR$/src/gameFiles/Controller.java" />
+        <option value="$PROJECT_DIR$/src/gameFiles/Scene.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="45" />
-    <option name="y" value="22" />
-    <option name="width" value="1235" />
-    <option name="height" value="778" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -174,7 +253,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -186,8 +265,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -219,9 +296,63 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameFiles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LittleRedGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LittleRedGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameFiles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LittleRedGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LittleRedGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameFiles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imgLabel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -247,13 +378,33 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="888" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="recentsLimit" value="5" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
+  <component name="RunManager" selected="Application.main">
+    <configuration default="false" name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gameFiles.main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="LittleRedGame" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
       <option name="PROGRAM_PARAMETERS" />
@@ -277,6 +428,7 @@
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -285,6 +437,19 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -312,19 +477,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -378,31 +530,25 @@
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <list size="0" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Application.main" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.main" />
+      </list>
+    </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
-    <option name="USER" value="" />
-    <option name="PASSWORD" value="" />
-    <option name="mySSHConnectionTimeout" value="30000" />
-    <option name="mySSHReadTimeout" value="30000" />
-    <option name="LAST_MERGED_REVISION" />
-    <option name="MERGE_DRY_RUN" value="false" />
-    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
-    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
-    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
-    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
-    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <option name="FORCE_UPDATE" value="false" />
-    <option name="IGNORE_EXTERNALS" value="false" />
-    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  <component name="SvnConfiguration" myUseAcceleration="nothing" SSL_PROTOCOLS="sslv3">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -442,31 +588,39 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="45" y="22" width="1235" height="778" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3265306" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3265306" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934132" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16261525" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934132" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32798833" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16261525" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16261525" sideWeight="0.5" order="-1" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3265306" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3265306" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934132" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16261525" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934132" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32771823" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32798833" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16187595" sideWeight="0.5007657" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16187595" sideWeight="0.4992343" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USERS">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
   </component>
@@ -492,72 +646,64 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/util/Observable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="152" selection-end="152" vertical-scroll-proportion="0.11398176" vertical-offset="0" max-vertical-offset="658">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="427">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="427">
+          <caret line="0" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.java">
+    <entry file="file://$PROJECT_DIR$/src/gameFiles/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="49" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="17" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="6" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="28" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="2737">
+          <caret line="133" column="67" selection-start-line="133" selection-start-column="67" selection-end-line="133" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#242#249#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scene.java">
+    <entry file="file://$PROJECT_DIR$/src/gameFiles/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="21" selection-start="256" selection-end="256" vertical-scroll-proportion="0.2963526" vertical-offset="0" max-vertical-offset="870">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
           <folding>
-            <element signature="e#324#325#0" expanded="true" />
-            <element signature="e#393#394#0" expanded="true" />
-            <element signature="e#418#419#0" expanded="true" />
-            <element signature="e#448#449#0" expanded="true" />
-            <element signature="e#552#553#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
-            <element signature="e#665#666#0" expanded="true" />
-            <element signature="e#700#701#0" expanded="true" />
-            <element signature="e#737#738#0" expanded="true" />
-            <element signature="e#833#834#0" expanded="true" />
-            <element signature="e#868#869#0" expanded="true" />
+            <element signature="e#339#340#0" expanded="true" />
+            <element signature="e#382#383#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameFiles/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1037">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#974#975#0" expanded="true" />
+            <element signature="e#999#1000#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameFiles/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameFiles/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.816" vertical-offset="0" max-vertical-offset="1224">
+          <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
