@@ -48,11 +48,11 @@ public class Scene {
     }
 
     private void loadStoryText() {
-        //TODO: change txtStory path to general case
         String temp;
 
         try {
-            BufferedReader in = new BufferedReader(new FileReader("/Users/kevin/projects/LittleRedGame/src/gameFiles/res/txt/txtStory/" + this.ID + ".txt"));
+            java.net.URL url = getClass().getResource("res/txt/txtStory/" + this.ID + ".txt");
+            BufferedReader in = new BufferedReader(new FileReader(url.getPath()));
             temp = in.readLine();
 
             while (temp != null){
@@ -78,8 +78,8 @@ public class Scene {
         int location = 0;
 
         try {
-            BufferedReader in = new BufferedReader(new FileReader("/Users/kevin/projects/LittleRedGame/src/gameFiles/res/txt/txtResponse/" + this.ID + ".txt"));
-
+            java.net.URL url = getClass().getResource("res/txt/txtResponse/" + this.ID + ".txt");
+            BufferedReader in = new BufferedReader(new FileReader(url.getPath()));
             temp = in.readLine();
 
             while (temp != null){
@@ -93,7 +93,7 @@ public class Scene {
             e.printStackTrace();
         }
 
-        while(buffer.isEmpty() == false){
+        while(!buffer.isEmpty()){
             temp = buffer.pop();
             location = temp.indexOf(delim);
             choiceText[choiceIndex] = temp.substring(0, location);
@@ -101,11 +101,11 @@ public class Scene {
             choiceIndex++;
         }
 
-        /*//for testing
-        for(int i = 0; i <=2; i++){
+        //for testing
+        /*for(int i = 0; i <=2; i++){
             System.out.print("choiceText[" + i + "]=" + choiceText[i] + '\n');
             System.out.print("choiceSceneRedirect[" + i + "]=" + choiceSceneRedirect[i] + '\n');
-        } */
+        }*/
     }
 
     public String getID() {
