@@ -1,2 +1,2 @@
-Don’t kill Grandmother. Even though it’s a Fox, she is still your Grandmother./~/039
-Kill Grandmother Fox!/~/040
+Don't kill Grandmother. Even though it's a Fox, she is still your Grandmother.^039
+Kill Grandmother Fox!^040

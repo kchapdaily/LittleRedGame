@@ -1,2 +1,2 @@
-Run and find a group of Towns People to help you./~/015
-Take on the Fox. You can deal with him./~/013
+Run and find a group of Towns People to help you.^015
+Take on the Fox. You can deal with him.^013

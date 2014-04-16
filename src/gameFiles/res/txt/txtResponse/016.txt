@@ -1,2 +1,2 @@
-Try to attack the Fox by yourself./~/017
-Run outside for help./~/018
+Try to attack the Fox by yourself.^017
+Run outside for help.^018

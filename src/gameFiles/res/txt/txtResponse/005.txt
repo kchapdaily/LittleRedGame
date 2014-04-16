@@ -1,3 +1,3 @@
-Tree/~/007
-Bush/~/007
-Rock/~/007
+Tree^007
+Bush^007
+Rock^007

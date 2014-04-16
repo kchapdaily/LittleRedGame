@@ -1,3 +1,3 @@
-Take out a knife and cut off the Fox’s paw for getting too close./~/038
-Tell the Fox you are going to Grandmother’s. You know you shouldn’t talk to strangers but you also don’t want to be rude./~/034
-Don’t talk to the Fox and continue on down the path. You know not to talk to strangers./~/029
+Take out a knife and cut off the Fox's paw for getting too close.^038
+Tell the Fox you are going to Grandmother's. You know you shouldn't talk to strangers but you also don't want to be rude.^034
+Don't talk to the Fox and continue on down the path. You know not to talk to strangers.^029
