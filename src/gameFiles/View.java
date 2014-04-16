@@ -12,6 +12,7 @@ public class View extends Observable implements Observer, ActionListener {
     private JFrame game_frame;
     private JLabel label;
     private JButton responseButton1, responseButton2, responseButton3;
+    private JTextArea dialogTextArea, responseTextArea1, responseTextArea2, responseTextArea3;
 
     // Default Constructor
     public View() {
@@ -29,8 +30,8 @@ public class View extends Observable implements Observer, ActionListener {
         JPanel userPanel = new JPanel(new BorderLayout());
 
         // TOP OF USER PANEL - Story Text
-        JTextArea dialogTextArea = new JTextArea("This is the area where the dialog of the person" +
-                "little red is talking to comes from");//, SwingConstants.EAST);
+        dialogTextArea = new JTextArea("This is the area where the dialog of the person\" +\n" +
+                "                \"little red is talking to comes from");
         dialogTextArea.setWrapStyleWord(true);
         dialogTextArea.setLineWrap(true);
         dialogTextArea.setEditable(false);
@@ -53,19 +54,19 @@ public class View extends Observable implements Observer, ActionListener {
         responseButton3 = new JButton("C");
         responseButton3.addActionListener(this);
 
-        JTextArea responseTextArea1 = new JTextArea("Response This is " +
+        responseTextArea1 = new JTextArea("Response This is " +
                 "a test to see if all of the letters will fit in the text " +
                 "box on not go off of the screen");
         responseTextArea1.setSize(new Dimension(325, 500));
         responseTextArea1.setLineWrap(true);
         responseTextArea1.setWrapStyleWord(true);
         responseTextArea1.setEditable(false);
-        JTextArea responseTextArea2 = new JTextArea("Response 2");
+        responseTextArea2 = new JTextArea("Response 2");
         responseTextArea2.setSize(new Dimension(325, 500));
         responseTextArea2.setLineWrap(true);
         responseTextArea2.setWrapStyleWord(true);
         responseTextArea2.setEditable(false);
-        JTextArea responseTextArea3 = new JTextArea("Response 3");
+        responseTextArea3 = new JTextArea("Response 3");
         responseTextArea3.setSize(new Dimension(325, 500));
         responseTextArea3.setLineWrap(true);
         responseTextArea3.setWrapStyleWord(true);
@@ -130,11 +131,38 @@ public class View extends Observable implements Observer, ActionListener {
     public void update(Observable o, Object arg) {
         // Scene whose data members need to be loaded
         Scene s = (Scene) arg;
+        String[] temp = s.getChoiceText();
         System.out.println("View: Received Scene " + s.getID() + " from Model.");
 
         // Update visuals
         label.setIcon(null);
         label.setIcon(s.getSceneImage());
+        dialogTextArea.setText(s.getStoryText());
+
+        if (!temp[0].isEmpty()){
+            responseButton1.setEnabled(true);
+            responseTextArea1.setText(temp[0]);
+        }
+        else{
+            responseButton1.setEnabled(false);
+            responseTextArea1.setText("");
+        }
+        if (!temp[1].isEmpty()){
+            responseButton2.setEnabled(true);
+            responseTextArea2.setText(temp[1]);
+        }
+        else{
+            responseButton2.setEnabled(false);
+            responseTextArea2.setText("");
+        }
+        if (!temp[2].isEmpty()){
+            responseButton3.setEnabled(true);
+            responseTextArea3.setText(temp[2]);
+        }
+        else{
+            responseButton3.setEnabled(false);
+            responseTextArea3.setText("");
+        }
     }
 
     @Override
