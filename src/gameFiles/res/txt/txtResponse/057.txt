@@ -1,2 +1,2 @@
-Listen to the Cat’s warning and go down the side trail toward the field of flowers. Avoiding the Wolf will be much safer./~/058
-Don’t listen to the Cat’s warning. The main trail is faster and you want to get to Grandmother’s. When you get to the Wolf you can deal with him./~/066
+Listen to the Cat's warning and go down the side trail toward the field of flowers. Avoiding the Wolf will be much safer.^058
+Don't listen to the Cat's warning. The main trail is faster and you want to get to Grandmother's. When you get to the Wolf you can deal with him.^066

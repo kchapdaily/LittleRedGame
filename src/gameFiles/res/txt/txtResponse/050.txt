@@ -1,2 +1,2 @@
-Try to attack the Wolf by yourself./~/051
-Run outside for help./~/052
+Try to attack the Wolf by yourself.^051
+Run outside for help.^052

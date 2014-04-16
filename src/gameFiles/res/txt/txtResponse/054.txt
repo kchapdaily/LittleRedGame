@@ -1,2 +1,2 @@
-Don’t kill Grandmother. Even though it’s a Wolf, she is still your Grandmother./~/055
-Kill Grandmother Wolf!/~/056
+Don't kill Grandmother. Even though it's a Wolf, she is still your Grandmother.^055
+Kill Grandmother Wolf!^056
