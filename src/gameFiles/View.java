@@ -38,18 +38,20 @@ public class View extends Observable implements Observer, ActionListener {
         responseButton1 = new JButton();
         responseButton1.setOpaque(false);
         responseButton1.setContentAreaFilled(false);
+        responseButton1.setBorderPainted(false);
         responseButton1.addActionListener(this);
 
         responseButton2 = new JButton();
         responseButton2.setOpaque(false);
         responseButton2.setContentAreaFilled(false);
+        responseButton2.setBorderPainted(false);
         responseButton2.addActionListener(this);
 
         responseButton3 = new JButton();
         responseButton3.setOpaque(false);
         responseButton3.setContentAreaFilled(false);
+        responseButton3.setBorderPainted(false);
         responseButton3.addActionListener(this);
-
 
         // User response area
         responseTextArea1 = new JTextArea("Response This is " +
