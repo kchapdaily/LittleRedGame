@@ -13,6 +13,7 @@ public class View extends Observable implements Observer, ActionListener {
     private JLabel storyLabel;
     private JButton responseButton1, responseButton2, responseButton3;
     private ImageIcon storyImage;
+    private JTextArea dialogTextArea, responseTextArea1, responseTextArea2, responseTextArea3;
 
     // Default Constructor
     public View() {
@@ -23,7 +24,7 @@ public class View extends Observable implements Observer, ActionListener {
 
 
         // Story Text area
-        JTextArea dialogTextArea = new JTextArea("This is the area where the dialog of the person" +
+        dialogTextArea = new JTextArea("This is the area where the dialog of the person" +
                 "little red is talking to comes from");
         dialogTextArea.setFont(new Font("Serif", Font.ITALIC, 16));
         dialogTextArea.setWrapStyleWord(true);
@@ -51,7 +52,7 @@ public class View extends Observable implements Observer, ActionListener {
 
 
         // User response area
-        JTextArea responseTextArea1 = new JTextArea("Response This is " +
+        responseTextArea1 = new JTextArea("Response This is " +
                 "a test to see if all of the letters will fit in the text " +
                 "box on not go off of the screen dssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
         responseTextArea1.setOpaque(false);
@@ -59,13 +60,13 @@ public class View extends Observable implements Observer, ActionListener {
         responseTextArea1.setWrapStyleWord(true);
         responseTextArea1.setEditable(false);
 
-        JTextArea responseTextArea2 = new JTextArea("Response 2");
+        responseTextArea2 = new JTextArea("Response 2");
         responseTextArea2.setOpaque(false);
         responseTextArea2.setLineWrap(true);
         responseTextArea2.setWrapStyleWord(true);
         responseTextArea2.setEditable(false);
 
-        JTextArea responseTextArea3 = new JTextArea("Response 3");
+        responseTextArea3 = new JTextArea("Response 3");
         responseTextArea3.setOpaque(false);
         responseTextArea3.setLineWrap(true);
         responseTextArea3.setWrapStyleWord(true);
@@ -137,11 +138,42 @@ public class View extends Observable implements Observer, ActionListener {
     public void update(Observable o, Object arg) {
         // Scene whose data members need to be loaded
         Scene s = (Scene) arg;
+        String[] temp = s.getChoiceText();
+
         System.out.println("View: Received Scene " + s.getID() + " from Model.");
 
-        // Update visuals
+        // Update image
         storyLabel.setIcon(null);
         storyLabel.setIcon(s.getSceneImage());
+        // Update text
+        dialogTextArea.setText(s.getStoryText());
+
+        if (!temp[0].isEmpty()){
+            responseButton1.setEnabled(true);
+            responseTextArea1.setText(temp[0]);
+        }
+        else{
+            responseButton1.setEnabled(false);
+            responseTextArea1.setText("");
+        }
+        if (!temp[1].isEmpty()){
+            responseButton2.setEnabled(true);
+            responseTextArea2.setText(temp[1]);
+        }
+        else{
+            responseButton2.setEnabled(false);
+            responseTextArea2.setText("");
+        }
+        if (!temp[2].isEmpty()){
+            responseButton3.setEnabled(true);
+            responseTextArea3.setText(temp[2]);
+        }
+        else{
+            responseButton3.setEnabled(false);
+            responseTextArea3.setText("");
+        }
+
+
     }
 
     @Override
