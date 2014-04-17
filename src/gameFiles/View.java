@@ -5,10 +5,10 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-import java.io.InputStream;
 
 public class View extends Observable implements Observer {
 
@@ -16,8 +16,6 @@ public class View extends Observable implements Observer {
     private JTextArea dialogTextArea;
     private SelectableTextPane responseTextPane1, responseTextPane2, responseTextPane3, nextTextPane, restartTextPane;
     private MouseListener paneML = new MouseListener() {
-
-        private boolean isPressed = false;
 
         private void repaintAll() {
             responseTextPane1.repaint();
@@ -43,11 +41,24 @@ public class View extends Observable implements Observer {
                 } else {
                     response = -1;
                 }
+
+                responseTextPane1.deselectResponse();
+                responseTextPane2.deselectResponse();
+                responseTextPane3.deselectResponse();
+
+                setChanged();
                 notifyObservers(response);
 
             } else if (e.getSource() == restartTextPane && restartTextPane.isSelectable()) {
+                nextTextPane.selectIcon("res/img/imgButton/DisabledButton.jpg");
                 nextTextPane.setSelectable(false);
+
+                responseTextPane1.deselectResponse();
+                responseTextPane2.deselectResponse();
+                responseTextPane3.deselectResponse();
+
                 response = 4;
+                setChanged();
                 notifyObservers(response);
 
             }
@@ -55,37 +66,51 @@ public class View extends Observable implements Observer {
 
         @Override
         public void mousePressed(MouseEvent e) {
-            isPressed = true;
 
             if (e.getSource() == responseTextPane1 && responseTextPane1.isSelectable()) {
                 responseTextPane1.selectIcon("res/img/other/PressedWindow.jpg");
-                responseTextPane2.selectIcon("res/img/other/StaticWindow.jpg");
-                responseTextPane3.selectIcon("res/img/other/StaticWindow.jpg");
-
                 responseTextPane1.selectResponse();
                 responseTextPane2.deselectResponse();
                 responseTextPane3.deselectResponse();
 
+                if (responseTextPane2.isSelectable()) {
+                    responseTextPane2.selectIcon("res/img/other/StaticWindow.jpg");
+                }
+                if (responseTextPane3.isSelectable()) {
+                    responseTextPane3.selectIcon("res/img/other/StaticWindow.jpg");
+                }
+
+                nextTextPane.selectIcon("res/img/imgButton/StaticButton.jpg");
                 nextTextPane.setSelectable(true);
             } else if (e.getSource() == responseTextPane2 && responseTextPane2.isSelectable()) {
-                responseTextPane1.selectIcon("res/img/other/StaticWindow.jpg");
                 responseTextPane2.selectIcon("res/img/other/PressedWindow.jpg");
-                responseTextPane3.selectIcon("res/img/other/StaticWindow.jpg");
-
-                responseTextPane1.deselectResponse();
                 responseTextPane2.selectResponse();
+                responseTextPane1.deselectResponse();
                 responseTextPane3.deselectResponse();
 
+                if (responseTextPane1.isSelectable()) {
+                    responseTextPane1.selectIcon("res/img/other/StaticWindow.jpg");
+                }
+                if (responseTextPane3.isSelectable()) {
+                    responseTextPane3.selectIcon("res/img/other/StaticWindow.jpg");
+                }
+
+                nextTextPane.selectIcon("res/img/imgButton/StaticButton.jpg");
                 nextTextPane.setSelectable(true);
             } else if (e.getSource() == responseTextPane3 && responseTextPane3.isSelectable()) {
-                responseTextPane1.selectIcon("res/img/other/StaticWindow.jpg");
-                responseTextPane2.selectIcon("res/img/other/StaticWindow.jpg");
                 responseTextPane3.selectIcon("res/img/other/PressedWindow.jpg");
-
+                responseTextPane3.selectResponse();
                 responseTextPane1.deselectResponse();
                 responseTextPane2.deselectResponse();
-                responseTextPane3.selectResponse();
 
+                if (responseTextPane1.isSelectable()) {
+                    responseTextPane1.selectIcon("res/img/other/StaticWindow.jpg");
+                }
+                if (responseTextPane2.isSelectable()) {
+                    responseTextPane2.selectIcon("res/img/other/StaticWindow.jpg");
+                }
+
+                nextTextPane.selectIcon("res/img/imgButton/StaticButton.jpg");
                 nextTextPane.setSelectable(true);
             } else if (e.getSource() == nextTextPane && nextTextPane.isSelectable()) {
                 nextTextPane.selectIcon("res/img/imgButton/PressedButton.jpg");
@@ -97,7 +122,6 @@ public class View extends Observable implements Observer {
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            isPressed = false;
             if (e.getSource() == nextTextPane && nextTextPane.isSelectable()) {
                 nextTextPane.selectIcon("res/img/imgButton/StaticButton.jpg");
             } else if (e.getSource() == restartTextPane && restartTextPane.isSelectable()) {
@@ -109,35 +133,15 @@ public class View extends Observable implements Observer {
         @Override
         public void mouseEntered(MouseEvent e) {
             if (e.getSource() == responseTextPane1 && responseTextPane1.isSelectable() && !responseTextPane1.isSelected()) {
-                if (isPressed) {
-                    responseTextPane1.selectIcon("res/img/other/PressedWindow.jpg");
-                } else {
-                    responseTextPane1.selectIcon("res/img/other/SelectedWindow.jpg");
-                }
+                responseTextPane1.selectIcon("res/img/other/SelectedWindow.jpg");
             } else if (e.getSource() == responseTextPane2 && responseTextPane2.isSelectable() && !responseTextPane2.isSelected()) {
-                if (isPressed) {
-                    responseTextPane2.selectIcon("res/img/other/PressedWindow.jpg");
-                } else {
-                    responseTextPane2.selectIcon("res/img/other/SelectedWindow.jpg");
-                }
+                responseTextPane2.selectIcon("res/img/other/SelectedWindow.jpg");
             } else if (e.getSource() == responseTextPane3 && responseTextPane3.isSelectable() && !responseTextPane3.isSelected()) {
-                if (isPressed) {
-                    responseTextPane3.selectIcon("res/img/other/PressedWindow.jpg");
-                } else {
-                    responseTextPane3.selectIcon("res/img/other/SelectedWindow.jpg");
-                }
+                responseTextPane3.selectIcon("res/img/other/SelectedWindow.jpg");
             } else if (e.getSource() == nextTextPane && nextTextPane.isSelectable()) {
-                if (isPressed) {
-                    nextTextPane.selectIcon("res/img/other/PressedButton.jpg");
-                } else {
-                    nextTextPane.selectIcon("res/img/other/SelectedButton.jpg");
-                }
+                nextTextPane.selectIcon("res/img/imgButton/SelectedButton.jpg");
             } else if (e.getSource() == restartTextPane && restartTextPane.isSelectable()) {
-                if (isPressed) {
-                    restartTextPane.selectIcon("res/img/other/PressedButton.jpg");
-                } else {
-                    restartTextPane.selectIcon("res/img/other/SelectedButton.jpg");
-                }
+                restartTextPane.selectIcon("res/img/imgButton/SelectedButton.jpg");
             }
             repaintAll();
         }
@@ -170,7 +174,7 @@ public class View extends Observable implements Observer {
         createFrame();
     }
 
-    public void loadFont(String ffn, int fontFormat){
+    private void loadFont(String ffn, int fontFormat) {
         URL url = getClass().getResource("res/fonts/" + ffn);
         InputStream fontStream = null;
         Font font = null;
@@ -194,8 +198,7 @@ public class View extends Observable implements Observer {
 
     public void createFrame() {
         // Story Text area
-        dialogTextArea = new JTextArea("This is the area where the dialog of the person" +
-                "little red is talking to comes from");
+        dialogTextArea = new JTextArea();
         dialogTextArea.setFont(regularFont);
         dialogTextArea.setWrapStyleWord(true);
         dialogTextArea.setLineWrap(true);
@@ -206,22 +209,22 @@ public class View extends Observable implements Observer {
         dialogTextArea.setLocation(474, 38);
 
         // User response area
-        responseTextPane1 = new SelectableTextPane("Response 1");
-        responseTextPane1.setFont(new Font(fontName, Font.PLAIN, 13));
+        responseTextPane1 = new SelectableTextPane("");
+        responseTextPane1.setFont(regularFont);
         responseTextPane1.setEditable(false);
         responseTextPane1.addMouseListener(paneML);
         responseTextPane1.setSize(new Dimension(680, 48));
         responseTextPane1.setLocation(59, 356);
 
-        responseTextPane2 = new SelectableTextPane("Response 2");
-        responseTextPane2.setFont(new Font(fontName, Font.PLAIN, 14));
+        responseTextPane2 = new SelectableTextPane("");
+        responseTextPane2.setFont(regularFont);
         responseTextPane2.setEditable(false);
         responseTextPane2.addMouseListener(paneML);
         responseTextPane2.setSize(new Dimension(680, 48));
         responseTextPane2.setLocation(59, 407);
 
-        responseTextPane3 = new SelectableTextPane("Response 3");
-        responseTextPane3.setFont(new Font(fontName, Font.PLAIN, 12));
+        responseTextPane3 = new SelectableTextPane("");
+        responseTextPane3.setFont(regularFont);
         responseTextPane3.setEditable(false);
         responseTextPane3.addMouseListener(paneML);
         responseTextPane3.setSize(new Dimension(680, 48));
@@ -231,7 +234,7 @@ public class View extends Observable implements Observer {
         nextTextPane.setFont(new Font(fontName, Font.PLAIN, 19));
         nextTextPane.setEditable(false);
         nextTextPane.addMouseListener(paneML);
-        nextTextPane.selectIcon("res/img/imgButton/StaticButton.jpg");
+        nextTextPane.selectIcon("res/img/imgButton/DisabledButton.jpg");
         nextTextPane.setSelectable(false);
         nextTextPane.setSize(new Dimension(147, 37));
         nextTextPane.setLocation(492, 525);
@@ -260,12 +263,12 @@ public class View extends Observable implements Observer {
         JFrame game_frame = new JFrame("The Trails of Little Red");
         JLayeredPane gameLayeredPane = new JLayeredPane();
         gameLayeredPane.setPreferredSize(new Dimension(800, 600));
-        game_frame.add(gameLayeredPane, BorderLayout.CENTER);
         backgroundLabel.setSize(gameLayeredPane.getPreferredSize());
         backgroundLabel.setLocation(0, 0);
         gameLayeredPane.add(backgroundLabel, JLayeredPane.DEFAULT_LAYER);
 
         // Place components on Frame
+        game_frame.add(gameLayeredPane, BorderLayout.CENTER);
         gameLayeredPane.add(storyLabel, JLayeredPane.PALETTE_LAYER);
         gameLayeredPane.add(dialogTextArea, JLayeredPane.PALETTE_LAYER);
         gameLayeredPane.add(responseTextPane1, JLayeredPane.PALETTE_LAYER);
@@ -331,13 +334,13 @@ public class View extends Observable implements Observer {
         }
 
         if (!sceneChoice[2].isEmpty()) {
-            responseTextPane2.setText(sceneChoice[2]);
-            responseTextPane2.setSelectable(true);
-            responseTextPane2.selectIcon("res/img/other/StaticWindow.jpg");
+            responseTextPane3.setText(sceneChoice[2]);
+            responseTextPane3.setSelectable(true);
+            responseTextPane3.selectIcon("res/img/other/StaticWindow.jpg");
         } else {
-            responseTextPane2.setText("");
-            responseTextPane2.setSelectable(false);
-            responseTextPane2.selectIcon("res/img/other/DisabledWindow.jpg");
+            responseTextPane3.setText("");
+            responseTextPane3.setSelectable(false);
+            responseTextPane3.selectIcon("res/img/other/DisabledWindow.jpg");
         }
     }
 }
