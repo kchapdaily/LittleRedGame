@@ -4,8 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
+import java.net.URL;
+import java.io.InputStream;
 
 public class View extends Observable implements Observer, ActionListener {
 
@@ -14,10 +18,42 @@ public class View extends Observable implements Observer, ActionListener {
     private JButton responseButton1, responseButton2, responseButton3;
     private ImageIcon storyImage;
     private JTextArea dialogTextArea, responseTextArea1, responseTextArea2, responseTextArea3;
+    private String fontName = "Minecraftia";
+    private String fontFileName = "Minecraftia.ttf";
+
+    public void loadFont(String fn, int fontFormat){
+        URL url = getClass().getResource("res/fonts/" + fn);
+        InputStream fontStream = null;
+
+        try {
+            fontStream = url.openStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Font font = null;
+
+        try {
+            font = Font.createFont(fontFormat, fontStream);
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+
+        //for testing
+        /*String fontFamilies[] = ge.getAvailableFontFamilyNames();
+        for (int i = 0; i < (fontFamilies.length); i++){
+            System.out.print(fontFamilies[i] + '\n');
+        }*/
+    }
 
     // Default Constructor
     public View() {
         createFrame();
+        loadFont(fontFileName, Font.TRUETYPE_FONT);
     }
 
     public void createFrame() {
@@ -26,7 +62,7 @@ public class View extends Observable implements Observer, ActionListener {
         // Story Text area
         dialogTextArea = new JTextArea("This is the area where the dialog of the person" +
                 "little red is talking to comes from");
-        dialogTextArea.setFont(new Font("Serif", Font.ITALIC, 16));
+        dialogTextArea.setFont(new Font(fontName, Font.PLAIN, 14));
         dialogTextArea.setWrapStyleWord(true);
         dialogTextArea.setLineWrap(true);
         dialogTextArea.setEditable(false);
@@ -57,18 +93,21 @@ public class View extends Observable implements Observer, ActionListener {
         responseTextArea1 = new JTextArea("Response This is " +
                 "a test to see if all of the letters will fit in the text " +
                 "box on not go off of the screen dssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+        responseTextArea1.setFont(new Font(fontName, Font.PLAIN, 14));
         responseTextArea1.setOpaque(false);
         responseTextArea1.setLineWrap(true);
         responseTextArea1.setWrapStyleWord(true);
         responseTextArea1.setEditable(false);
 
         responseTextArea2 = new JTextArea("Response 2");
+        responseTextArea2.setFont(new Font(fontName, Font.PLAIN, 14));
         responseTextArea2.setOpaque(false);
         responseTextArea2.setLineWrap(true);
         responseTextArea2.setWrapStyleWord(true);
         responseTextArea2.setEditable(false);
 
         responseTextArea3 = new JTextArea("Response 3");
+        responseTextArea3.setFont(new Font(fontName, Font.PLAIN, 14));
         responseTextArea3.setOpaque(false);
         responseTextArea3.setLineWrap(true);
         responseTextArea3.setWrapStyleWord(true);
