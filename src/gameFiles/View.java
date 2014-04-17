@@ -20,9 +20,11 @@ public class View extends Observable implements Observer, ActionListener {
     private JTextArea dialogTextArea, responseTextArea1, responseTextArea2, responseTextArea3;
     private String fontName = "Minecraftia";
     private String fontFileName = "Minecraftia.ttf";
+    private Font smallFont;
+    private Font regularFont;
 
-    public void loadFont(String fn, int fontFormat){
-        URL url = getClass().getResource("res/fonts/" + fn);
+    public void loadFont(String ffn, int fontFormat){
+        URL url = getClass().getResource("res/fonts/" + ffn);
         InputStream fontStream = null;
 
         try {
@@ -43,6 +45,7 @@ public class View extends Observable implements Observer, ActionListener {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
+
         //for testing
         /*String fontFamilies[] = ge.getAvailableFontFamilyNames();
         for (int i = 0; i < (fontFamilies.length); i++){
@@ -54,15 +57,16 @@ public class View extends Observable implements Observer, ActionListener {
     public View() {
         createFrame();
         loadFont(fontFileName, Font.TRUETYPE_FONT);
+        this.regularFont = new Font(fontName, Font.PLAIN, 13);
+        this.smallFont = new Font(fontName, Font.PLAIN, 9);
     }
 
     public void createFrame() {
 
-
         // Story Text area
         dialogTextArea = new JTextArea("This is the area where the dialog of the person" +
                 "little red is talking to comes from");
-        dialogTextArea.setFont(new Font(fontName, Font.PLAIN, 14));
+        dialogTextArea.setFont(regularFont);
         dialogTextArea.setWrapStyleWord(true);
         dialogTextArea.setLineWrap(true);
         dialogTextArea.setEditable(false);
@@ -93,21 +97,21 @@ public class View extends Observable implements Observer, ActionListener {
         responseTextArea1 = new JTextArea("Response This is " +
                 "a test to see if all of the letters will fit in the text " +
                 "box on not go off of the screen dssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
-        responseTextArea1.setFont(new Font(fontName, Font.PLAIN, 14));
+        responseTextArea1.setFont(regularFont);
         responseTextArea1.setOpaque(false);
         responseTextArea1.setLineWrap(true);
         responseTextArea1.setWrapStyleWord(true);
         responseTextArea1.setEditable(false);
 
         responseTextArea2 = new JTextArea("Response 2");
-        responseTextArea2.setFont(new Font(fontName, Font.PLAIN, 14));
+        responseTextArea2.setFont(regularFont);
         responseTextArea2.setOpaque(false);
         responseTextArea2.setLineWrap(true);
         responseTextArea2.setWrapStyleWord(true);
         responseTextArea2.setEditable(false);
 
         responseTextArea3 = new JTextArea("Response 3");
-        responseTextArea3.setFont(new Font(fontName, Font.PLAIN, 14));
+        responseTextArea3.setFont(regularFont);
         responseTextArea3.setOpaque(false);
         responseTextArea3.setLineWrap(true);
         responseTextArea3.setWrapStyleWord(true);
@@ -187,10 +191,23 @@ public class View extends Observable implements Observer, ActionListener {
         storyLabel.setIcon(null);
         storyLabel.setIcon(s.getSceneImage());
         // Update text
+        if (s.getStoryText().length() > 346){
+            dialogTextArea.setFont(smallFont);
+        }
+        else{
+            dialogTextArea.setFont(regularFont);
+        }
+
         dialogTextArea.setText(s.getStoryText());
 
         if (!temp[0].isEmpty()){
             responseButton1.setEnabled(true);
+            if ( temp[0].length() > 139){
+                responseTextArea1.setFont(smallFont);
+            }
+            else{
+                responseTextArea1.setFont(regularFont);
+            }
             responseTextArea1.setText(temp[0]);
         }
         else{
@@ -199,6 +216,13 @@ public class View extends Observable implements Observer, ActionListener {
         }
         if (!temp[1].isEmpty()){
             responseButton2.setEnabled(true);
+            if ( temp[1].length() > 139){
+
+                responseTextArea2.setFont(smallFont);
+            }
+            else{
+                responseTextArea2.setFont(regularFont);
+            }
             responseTextArea2.setText(temp[1]);
         }
         else{
@@ -207,6 +231,12 @@ public class View extends Observable implements Observer, ActionListener {
         }
         if (!temp[2].isEmpty()){
             responseButton3.setEnabled(true);
+            if ( temp[2].length() > 139){
+                responseTextArea3.setFont(smallFont);
+            }
+            else{
+                responseTextArea3.setFont(regularFont);
+            }
             responseTextArea3.setText(temp[2]);
         }
         else{
