@@ -10,8 +10,9 @@ import java.util.Observer;
 public class View extends Observable implements Observer, ActionListener {
 
     private JFrame game_frame;
-    private JLabel label;
+    private JLabel storyLabel;
     private JButton responseButton1, responseButton2, responseButton3;
+    private ImageIcon storyImage;
 
     // Default Constructor
     public View() {
@@ -20,98 +21,104 @@ public class View extends Observable implements Observer, ActionListener {
 
     public void createFrame() {
 
-        //Title area
-        JLabel title = new JLabel("<html><h1>The Trails of Little Red</h1></html>");
-        title.setHorizontalAlignment(JLabel.CENTER);
 
-
-        //Conversation area
-        JPanel userPanel = new JPanel(new BorderLayout());
-
-        // TOP OF USER PANEL - Story Text
+        // Story Text area
         JTextArea dialogTextArea = new JTextArea("This is the area where the dialog of the person" +
-                "little red is talking to comes from");//, SwingConstants.EAST);
+                "little red is talking to comes from");
+        dialogTextArea.setFont(new Font("Serif", Font.ITALIC, 16));
         dialogTextArea.setWrapStyleWord(true);
         dialogTextArea.setLineWrap(true);
         dialogTextArea.setEditable(false);
-
-        //dialogTextArea is located in here to allow scrolling
-        JScrollPane conversationScrollPane = new JScrollPane(dialogTextArea);
-        dialogTextArea.setPreferredSize(new Dimension(350, 200));
+        dialogTextArea.setOpaque(false);
 
 
-        // BOTTOM OF USER PANEL - Responses
-        JPanel redsResponsePanel = new JPanel(new GridBagLayout());
-        JPanel responsePanel1 = new JPanel();
-        JPanel responsePanel2 = new JPanel();
-        JPanel responsePanel3 = new JPanel();
-
-        responseButton1 = new JButton("A");
+        // BOTTOM Panel, user responses and buttons
+        // User Buttons
+        responseButton1 = new JButton();
+        responseButton1.setOpaque(false);
+        responseButton1.setContentAreaFilled(false);
         responseButton1.addActionListener(this);
-        responseButton2 = new JButton("B");
+
+        responseButton2 = new JButton();
+        responseButton2.setOpaque(false);
+        responseButton2.setContentAreaFilled(false);
         responseButton2.addActionListener(this);
-        responseButton3 = new JButton("C");
+
+        responseButton3 = new JButton();
+        responseButton3.setOpaque(false);
+        responseButton3.setContentAreaFilled(false);
         responseButton3.addActionListener(this);
 
+
+        // User response area
         JTextArea responseTextArea1 = new JTextArea("Response This is " +
                 "a test to see if all of the letters will fit in the text " +
-                "box on not go off of the screen");
-        responseTextArea1.setSize(new Dimension(325, 500));
+                "box on not go off of the screen dssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+        responseTextArea1.setOpaque(false);
         responseTextArea1.setLineWrap(true);
         responseTextArea1.setWrapStyleWord(true);
         responseTextArea1.setEditable(false);
+
         JTextArea responseTextArea2 = new JTextArea("Response 2");
-        responseTextArea2.setSize(new Dimension(325, 500));
+        responseTextArea2.setOpaque(false);
         responseTextArea2.setLineWrap(true);
         responseTextArea2.setWrapStyleWord(true);
         responseTextArea2.setEditable(false);
+
         JTextArea responseTextArea3 = new JTextArea("Response 3");
-        responseTextArea3.setSize(new Dimension(325, 500));
+        responseTextArea3.setOpaque(false);
         responseTextArea3.setLineWrap(true);
         responseTextArea3.setWrapStyleWord(true);
         responseTextArea3.setEditable(false);
 
-        responsePanel1.add(responseButton1, BorderLayout.WEST);
-        responsePanel1.add(responseTextArea1, BorderLayout.EAST);
-        responsePanel2.add(responseButton2, BorderLayout.WEST);
-        responsePanel2.add(responseTextArea2, BorderLayout.EAST);
-        responsePanel3.add(responseButton3, BorderLayout.WEST);
-        responsePanel3.add(responseTextArea3, BorderLayout.EAST);
-
-
-        //Add components to redsResponsePanel
-        GridBagConstraints c = new GridBagConstraints();
-        c.fill = GridBagConstraints.PAGE_START;
-        c.gridx = 1;
-        c.gridy = 0;
-        redsResponsePanel.add(responsePanel1, c);
-        c.fill = GridBagConstraints.LINE_START;
-        c.gridx = 1;
-        c.gridy = 1;
-        redsResponsePanel.add(responsePanel2, c);
-        c.fill = GridBagConstraints.LAST_LINE_START;
-        c.gridx = 1;
-        c.gridy = 2;
-        redsResponsePanel.add(responsePanel3, c);
-
-        //Add components to userPanel
-        userPanel.add(dialogTextArea, BorderLayout.NORTH);
-        userPanel.add(redsResponsePanel, BorderLayout.WEST);
-
-
         //Image area
-        ImageIcon image = createImageIcon("res/img/imgLabel/000.jpg");
-        label = new JLabel("", image, JLabel.CENTER);
+        storyImage = createImageIcon("res/img/imgLabel/000.jpg");
+        storyLabel = new JLabel("", storyImage, JLabel.CENTER);
 
 
-        //
-        // Create frame
+        // Create background
+        ImageIcon backgroundImage = createImageIcon("res/img/other/Background.jpg");
+        JPanel backgroundPanel = new JPanel();
+        JLabel backgroundLabel = new JLabel("", backgroundImage, JLabel.CENTER);
+        backgroundPanel.add(backgroundLabel, BorderLayout.CENTER);
+
+
+        // Create frame and resize and set location of components
         game_frame = new JFrame("The Trails of Little Red");
+        JLayeredPane gameLayeredPane = new JLayeredPane();
+        gameLayeredPane.setPreferredSize(new Dimension(800, 600));
+        game_frame.add(gameLayeredPane, BorderLayout.CENTER);
+        backgroundLabel.setSize(gameLayeredPane.getPreferredSize());
+        backgroundLabel.setLocation(0, 0);
+        gameLayeredPane.add(backgroundLabel, JLayeredPane.DEFAULT_LAYER);
+
+        storyLabel.setSize(new Dimension(400, 300));
+        storyLabel.setLocation(63, 38);
+        dialogTextArea.setSize(new Dimension(264, 300));
+        dialogTextArea.setLocation(472, 38);
+        responseTextArea1.setSize(new Dimension(674, 42));
+        responseTextArea1.setLocation(62, 359);
+        responseButton1.setSize(new Dimension(674, 42));
+        responseTextArea1.add(responseButton1);
+
+        responseTextArea2.setSize(new Dimension(674, 42));
+        responseTextArea2.setLocation(62, 410);
+        responseButton2.setSize(new Dimension(674, 42));
+        responseTextArea2.add(responseButton2);
+
+        responseTextArea3.setSize(new Dimension(674, 42));
+        responseTextArea3.setLocation(62, 462);
+        responseButton3.setSize(new Dimension(674, 42));
+        responseTextArea3.add(responseButton3);
+
+
+        // Place components on Frame
+        gameLayeredPane.add(storyLabel, JLayeredPane.PALETTE_LAYER);
+        gameLayeredPane.add(dialogTextArea, JLayeredPane.PALETTE_LAYER);
+        gameLayeredPane.add(responseTextArea1, JLayeredPane.PALETTE_LAYER);
+        gameLayeredPane.add(responseTextArea2, JLayeredPane.PALETTE_LAYER);
+        gameLayeredPane.add(responseTextArea3, JLayeredPane.PALETTE_LAYER);
         game_frame.setVisible(true);
-        game_frame.getContentPane().add(title, BorderLayout.NORTH);
-        game_frame.getContentPane().add(label, BorderLayout.WEST);
-        game_frame.getContentPane().add(userPanel, BorderLayout.EAST);
-        game_frame.setResizable(false);
         game_frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         game_frame.pack();
     }
@@ -133,8 +140,8 @@ public class View extends Observable implements Observer, ActionListener {
         System.out.println("View: Received Scene " + s.getID() + " from Model.");
 
         // Update visuals
-        label.setIcon(null);
-        label.setIcon(s.getSceneImage());
+        storyLabel.setIcon(null);
+        storyLabel.setIcon(s.getSceneImage());
     }
 
     @Override
