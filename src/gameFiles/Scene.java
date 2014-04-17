@@ -37,7 +37,7 @@ public class Scene {
     }
 
     private void loadImage() {
-        String imagePath = "res/img/imgLabel/" + ID + ".jpg";
+        String imagePath = "res/img/imgLabel/" + this.ID + ".jpg";
         java.net.URL imageURL = getClass().getResource(imagePath);
         if (imageURL != null) {
             sceneImage = new ImageIcon(imageURL);
@@ -49,6 +49,7 @@ public class Scene {
 
     private void loadStoryText() {
         String temp;
+        storyText = "";
 
         try {
             java.net.URL url = getClass().getResource("res/txt/txtStory/" + this.ID + ".txt");
@@ -67,7 +68,7 @@ public class Scene {
         }
 
         //for testing
-        System.out.print("story text: " + storyText + '\n');
+        //System.out.print("story text: " + storyText + '\n');
     }
 
     private void loadChoices() {
@@ -76,6 +77,11 @@ public class Scene {
         String delim = "^";
         int choiceIndex = 0;
         int location = 0;
+
+        for (int i = 0; i <=2; i++){
+            choiceText[i] = "";
+            choiceSceneRedirect[i] = ";";
+        }
 
         try {
             java.net.URL url = getClass().getResource("res/txt/txtResponse/" + this.ID + ".txt");
