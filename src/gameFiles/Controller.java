@@ -25,6 +25,9 @@ public class Controller implements Observer {
             System.out.println("What button did you just press?!?");
             return TITLE_SCENE_ID;
         }
+        else if (choiceNumber == 4){
+            return TITLE_SCENE_ID;
+        }
         return model.getCurrentScene().getChoiceSceneRedirect(choiceNumber);
     }
 
