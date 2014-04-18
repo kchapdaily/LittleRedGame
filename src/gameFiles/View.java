@@ -4,11 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-import java.net.URL;
 import java.io.InputStream;
 
 public class View extends Observable implements Observer, ActionListener {
@@ -22,6 +23,32 @@ public class View extends Observable implements Observer, ActionListener {
     private String fontFileName = "Minecraftia.ttf";
     private Font smallFont;
     private Font regularFont;
+    private int bBoringFeature06status;
+    private int boringFeature06Index;
+    JLabel backgroundLabel;
+    private int boringFeature06ref[];
+
+    // Default Constructor
+    public View() {
+        loadFont(fontFileName, Font.TRUETYPE_FONT);
+        this.regularFont = new Font(fontName, Font.PLAIN, 13);
+        this.smallFont = new Font(fontName, Font.PLAIN, 9);
+        bBoringFeature06status = 0;
+        boringFeature06Index = 0;
+        boringFeature06ref = new int[10];
+        boringFeature06ref[0] = 38;
+        boringFeature06ref[1] = 38;
+        boringFeature06ref[2] = 40;
+        boringFeature06ref[3] = 40;
+        boringFeature06ref[4] = 37;
+        boringFeature06ref[5] = 39;
+        boringFeature06ref[6] = 37;
+        boringFeature06ref[7] = 39;
+        boringFeature06ref[8] = 66;
+        boringFeature06ref[9] = 65;
+
+        createFrame();
+    }
 
     public void loadFont(String ffn, int fontFormat){
         URL url = getClass().getResource("res/fonts/" + ffn);
@@ -53,12 +80,9 @@ public class View extends Observable implements Observer, ActionListener {
         }*/
     }
 
-    // Default Constructor
-    public View() {
-        createFrame();
-        loadFont(fontFileName, Font.TRUETYPE_FONT);
-        this.regularFont = new Font(fontName, Font.PLAIN, 13);
-        this.smallFont = new Font(fontName, Font.PLAIN, 9);
+
+    private void boringFeature06(){
+
     }
 
     public void createFrame() {
@@ -71,6 +95,8 @@ public class View extends Observable implements Observer, ActionListener {
         dialogTextArea.setLineWrap(true);
         dialogTextArea.setEditable(false);
         dialogTextArea.setOpaque(false);
+
+
 
 
         // BOTTOM Panel, user responses and buttons
@@ -125,13 +151,43 @@ public class View extends Observable implements Observer, ActionListener {
         // Create background
         ImageIcon backgroundImage = createImageIcon("res/img/other/Background.jpg");
         JPanel backgroundPanel = new JPanel();
-        JLabel backgroundLabel = new JLabel("", backgroundImage, JLabel.CENTER);
+        backgroundLabel = new JLabel("", backgroundImage, JLabel.CENTER);
         backgroundPanel.add(backgroundLabel, BorderLayout.CENTER);
 
 
         // Create frame and resize and set location of components
         game_frame = new JFrame("The Trails of Little Red");
+
+
         JLayeredPane gameLayeredPane = new JLayeredPane();
+
+        backgroundLabel.setFocusable(true);
+        backgroundLabel.addKeyListener(new KeyListener() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {}
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+                int keyCode = e.getKeyCode();
+
+                if (keyCode == boringFeature06ref[boringFeature06Index]){
+                    boringFeature06Index++;
+                    if (boringFeature06Index == 9){
+                        bBoringFeature06status = 1;
+                        boringFeature06Index = 0;
+                    }
+                }
+                else{
+                    boringFeature06Index = 0;
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {}
+        });
+
         gameLayeredPane.setPreferredSize(new Dimension(800, 600));
         game_frame.add(gameLayeredPane, BorderLayout.CENTER);
         backgroundLabel.setSize(gameLayeredPane.getPreferredSize());
@@ -186,6 +242,17 @@ public class View extends Observable implements Observer, ActionListener {
         String[] temp = s.getChoiceText();
 
         System.out.println("View: Received Scene " + s.getID() + " from Model.");
+
+        //boring feature 06
+        if ((s.getID().equals("001")) && (bBoringFeature06status == 1)){
+            System.out.print("*Boring Feature 06 activated*");
+        }
+
+        if (((s.getID().equals("006")) || (s.getID().equals("007"))) && (bBoringFeature06status == 1)){
+            //set story label to drunk red image
+            temp[2] = "Screw the paths, that sounds like a whole lot of work. I'd rather get super drunk with Granny's wine.";
+            bBoringFeature06status = 2;
+        }
 
         // Update image
         storyLabel.setIcon(null);
@@ -243,18 +310,20 @@ public class View extends Observable implements Observer, ActionListener {
             responseButton3.setEnabled(false);
             responseTextArea3.setText("");
         }
-
-
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        backgroundLabel.requestFocusInWindow();
+
         int response;
         if (e.getSource() == responseButton1) {
             response = 0;
         } else if (e.getSource() == responseButton2) {
             response = 1;
-        } else if (e.getSource() == responseButton3) {
+        } else if ((e.getSource() == responseButton3) && (bBoringFeature06status == 2)) {
+            response = 3;
+        } else if (e.getSource() == responseButton3){
             response = 2;
         } else {
             response = -1;

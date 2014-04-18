@@ -6,6 +6,7 @@ import java.util.Observer;
 public class Controller implements Observer {
 
     private static final String TITLE_SCENE_ID = "000";
+    private static final String RANDOM_SCENE_ID = "woo";
     // Private data members
     private Model model;
 
@@ -25,6 +26,11 @@ public class Controller implements Observer {
             System.out.println("What button did you just press?!?");
             return TITLE_SCENE_ID;
         }
+
+        if (choiceNumber == 3){
+            return RANDOM_SCENE_ID;
+        }
+
         return model.getCurrentScene().getChoiceSceneRedirect(choiceNumber);
     }
 
