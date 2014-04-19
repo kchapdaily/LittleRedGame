@@ -64,7 +64,6 @@ public class View extends Observable implements Observer {
                 responseTextPane3.deselectResponse();
 
                 response = 4;
-                //TODO: boring feature 06 isnt working once the game is reset via the reset button
                 bBoringFeature06status = 0;
                 boringFeature06Index = 0;
                 setChanged();
@@ -355,6 +354,7 @@ public class View extends Observable implements Observer {
         // Scene whose data members need to be loaded
         Scene s = (Scene) arg;
         String[] sceneChoice = s.getChoiceText();
+        backgroundLabel.requestFocusInWindow();
 
         System.out.println("View: Received Scene " + s.getID() + " from Model.");
 
