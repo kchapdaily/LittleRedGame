@@ -1,11 +1,13 @@
 package gameFiles;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -14,9 +16,14 @@ import java.util.Observer;
 
 public class View extends Observable implements Observer {
 
+    JLabel backgroundLabel;
     private JLabel storyLabel;
     private JTextArea dialogTextArea;
     private SelectableTextPane responseTextPane1, responseTextPane2, responseTextPane3, nextTextPane, restartTextPane;
+    private String fontName = "Minecraftia";
+    private Font smallFont, regularFont;
+    private int bBoringFeature06status;
+    private int boringFeature06Index;
     private MouseListener paneML = new MouseListener() {
 
         private void repaintAll() {
@@ -39,9 +46,9 @@ public class View extends Observable implements Observer {
                 } else if (responseTextPane2.isSelected()) {
                     response = 1;
                 } else if (responseTextPane3.isSelected()) {
-                    if (bBoringFeature06status ==2){
+                    if (bBoringFeature06status == 2) {
                         response = 3;
-                    } else{
+                    } else {
                         response = 2;
                     }
                 } else {
@@ -170,12 +177,6 @@ public class View extends Observable implements Observer {
             repaintAll();
         }
     };
-    private String fontName = "Minecraftia";
-    private String fontFileName = "Minecraftia.ttf";
-    private Font smallFont, regularFont;
-    private int bBoringFeature06status;
-    private int boringFeature06Index;
-    JLabel backgroundLabel;
     private int boringFeature06ref[];
 
     // Default Constructor
@@ -296,33 +297,45 @@ public class View extends Observable implements Observer {
         backgroundLabel.addKeyListener(new KeyListener() {
 
             @Override
-            public void keyTyped(KeyEvent e) {}
+            public void keyTyped(KeyEvent e) {
+            }
 
             @Override
             public void keyPressed(KeyEvent e) {
 
                 int keyCode = e.getKeyCode();
 
-                if (keyCode == boringFeature06ref[boringFeature06Index]){
+                if (keyCode == boringFeature06ref[boringFeature06Index]) {
                     boringFeature06Index++;
-                    if (boringFeature06Index == 9){
+                    if (boringFeature06Index == 9) {
                         bBoringFeature06status = 1;
                         boringFeature06Index = 0;
                     }
-                }
-                else{
+                } else {
                     boringFeature06Index = 0;
                 }
             }
 
             @Override
-            public void keyReleased(KeyEvent e) {}
+            public void keyReleased(KeyEvent e) {
+            }
         });
 
         gameLayeredPane.setPreferredSize(new Dimension(800, 600));
         backgroundLabel.setSize(gameLayeredPane.getPreferredSize());
         backgroundLabel.setLocation(0, 0);
         gameLayeredPane.add(backgroundLabel, JLayeredPane.DEFAULT_LAYER);
+
+        // Get icon image
+        BufferedImage iconImg;
+        try {
+            String iconImgPath = "res/img/other/Background.jpg";    // Change Icon Path here
+            InputStream imgStream = getClass().getResourceAsStream(iconImgPath);
+            iconImg = ImageIO.read(imgStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+            iconImg = null;
+        }
 
         // Place components on Frame
         game_frame.add(gameLayeredPane, BorderLayout.CENTER);
@@ -336,6 +349,7 @@ public class View extends Observable implements Observer {
         game_frame.setResizable(false);
         game_frame.setVisible(true);
         game_frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        game_frame.setIconImage(iconImg);
         game_frame.pack();
     }
 
@@ -359,11 +373,11 @@ public class View extends Observable implements Observer {
         System.out.println("View: Received Scene " + s.getID() + " from Model.");
 
         //boring feature 06
-        if ((s.getID().equals("001")) && (bBoringFeature06status == 1)){
+        if ((s.getID().equals("001")) && (bBoringFeature06status == 1)) {
             System.out.print("*Boring Feature 06 activated*");
         }
 
-        if (((s.getID().equals("006")) || (s.getID().equals("007"))) && (bBoringFeature06status == 1)){
+        if (((s.getID().equals("006")) || (s.getID().equals("007"))) && (bBoringFeature06status == 1)) {
             //set story label to drunk red image
             sceneChoice[2] = "Screw the paths, that sounds like a whole lot of work. I'd rather get super drunk with Granny's wine.";
             bBoringFeature06status = 2;
@@ -402,11 +416,11 @@ public class View extends Observable implements Observer {
             responseTextPane2.selectIcon("res/img/other/DisabledWindow.jpg");
         }
 
-        if (!sceneChoice[2].isEmpty()){
+        if (!sceneChoice[2].isEmpty()) {
             responseTextPane3.setText(sceneChoice[2]);
             responseTextPane3.setSelectable(true);
             responseTextPane3.selectIcon("res/img/other/StaticWindow.jpg");
-        } else{
+        } else {
             responseTextPane3.setText("");
             responseTextPane3.setSelectable(false);
             responseTextPane3.selectIcon("res/img/other/DisabledWindow.jpg");
