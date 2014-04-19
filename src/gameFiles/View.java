@@ -290,7 +290,6 @@ public class View extends Observable implements Observer {
 
         // Create frame and resize and set location of components
         JFrame game_frame = new JFrame("The Trails of Little Red");
-        game_frame.setIconImage(createImageIcon("res/img/other/GAMEICON.ico").getImage());
         JLayeredPane gameLayeredPane = new JLayeredPane();
 
         backgroundLabel.setFocusable(true);
