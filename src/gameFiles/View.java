@@ -329,7 +329,7 @@ public class View extends Observable implements Observer {
         // Get icon image
         BufferedImage iconImg;
         try {
-            String iconImgPath = "res/img/other/Background.jpg";    // Change Icon Path here
+            String iconImgPath = "res/img/other/GAMEICON.png";
             InputStream imgStream = getClass().getResourceAsStream(iconImgPath);
             iconImg = ImageIO.read(imgStream);
         } catch (IOException e) {
