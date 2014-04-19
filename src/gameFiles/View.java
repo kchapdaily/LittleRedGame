@@ -2,27 +2,178 @@ package gameFiles;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-import java.io.InputStream;
 
-public class View extends Observable implements Observer, ActionListener {
+public class View extends Observable implements Observer {
 
-    private JFrame game_frame;
     private JLabel storyLabel;
-    private JButton responseButton1, responseButton2, responseButton3;
-    private ImageIcon storyImage;
-    private JTextArea dialogTextArea, responseTextArea1, responseTextArea2, responseTextArea3;
+    private JTextArea dialogTextArea;
+    private SelectableTextPane responseTextPane1, responseTextPane2, responseTextPane3, nextTextPane, restartTextPane;
+    private MouseListener paneML = new MouseListener() {
+
+        private void repaintAll() {
+            responseTextPane1.repaint();
+            responseTextPane2.repaint();
+            responseTextPane3.repaint();
+            nextTextPane.repaint();
+            restartTextPane.repaint();
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            int response;
+            if (e.getSource() == nextTextPane && nextTextPane.isSelectable()) {
+                nextTextPane.selectIcon("res/img/imgButton/DisabledButton.jpg");
+                nextTextPane.setSelectable(false);
+
+                if (responseTextPane1.isSelected()) {
+                    response = 0;
+                } else if (responseTextPane2.isSelected()) {
+                    response = 1;
+                } else if (responseTextPane3.isSelected()) {
+                    if (bBoringFeature06status ==2){
+                        response = 3;
+                    } else{
+                        response = 2;
+                    }
+                } else {
+                    response = -1;
+                }
+
+                responseTextPane1.deselectResponse();
+                responseTextPane2.deselectResponse();
+                responseTextPane3.deselectResponse();
+
+                setChanged();
+                notifyObservers(response);
+
+            } else if (e.getSource() == restartTextPane && restartTextPane.isSelectable()) {
+                nextTextPane.selectIcon("res/img/imgButton/DisabledButton.jpg");
+                nextTextPane.setSelectable(false);
+
+                responseTextPane1.deselectResponse();
+                responseTextPane2.deselectResponse();
+                responseTextPane3.deselectResponse();
+
+                response = 4;
+                //TODO: boring feature 06 isnt working once the game is reset via the reset button
+                bBoringFeature06status = 0;
+                boringFeature06Index = 0;
+                setChanged();
+                notifyObservers(response);
+
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+            if (e.getSource() == responseTextPane1 && responseTextPane1.isSelectable()) {
+                responseTextPane1.selectIcon("res/img/other/PressedWindow.jpg");
+                responseTextPane1.selectResponse();
+                responseTextPane2.deselectResponse();
+                responseTextPane3.deselectResponse();
+
+                if (responseTextPane2.isSelectable()) {
+                    responseTextPane2.selectIcon("res/img/other/StaticWindow.jpg");
+                }
+                if (responseTextPane3.isSelectable()) {
+                    responseTextPane3.selectIcon("res/img/other/StaticWindow.jpg");
+                }
+
+                nextTextPane.selectIcon("res/img/imgButton/StaticButton.jpg");
+                nextTextPane.setSelectable(true);
+            } else if (e.getSource() == responseTextPane2 && responseTextPane2.isSelectable()) {
+                responseTextPane2.selectIcon("res/img/other/PressedWindow.jpg");
+                responseTextPane2.selectResponse();
+                responseTextPane1.deselectResponse();
+                responseTextPane3.deselectResponse();
+
+                if (responseTextPane1.isSelectable()) {
+                    responseTextPane1.selectIcon("res/img/other/StaticWindow.jpg");
+                }
+                if (responseTextPane3.isSelectable()) {
+                    responseTextPane3.selectIcon("res/img/other/StaticWindow.jpg");
+                }
+
+                nextTextPane.selectIcon("res/img/imgButton/StaticButton.jpg");
+                nextTextPane.setSelectable(true);
+            } else if (e.getSource() == responseTextPane3 && responseTextPane3.isSelectable()) {
+                responseTextPane3.selectIcon("res/img/other/PressedWindow.jpg");
+                responseTextPane3.selectResponse();
+                responseTextPane1.deselectResponse();
+                responseTextPane2.deselectResponse();
+
+                if (responseTextPane1.isSelectable()) {
+                    responseTextPane1.selectIcon("res/img/other/StaticWindow.jpg");
+                }
+                if (responseTextPane2.isSelectable()) {
+                    responseTextPane2.selectIcon("res/img/other/StaticWindow.jpg");
+                }
+
+                nextTextPane.selectIcon("res/img/imgButton/StaticButton.jpg");
+                nextTextPane.setSelectable(true);
+            } else if (e.getSource() == nextTextPane && nextTextPane.isSelectable()) {
+                nextTextPane.selectIcon("res/img/imgButton/PressedButton.jpg");
+            } else if (e.getSource() == restartTextPane && restartTextPane.isSelectable()) {
+                restartTextPane.selectIcon("res/img/imgButton/PressedButton.jpg");
+            }
+            repaintAll();
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            if (e.getSource() == nextTextPane && nextTextPane.isSelectable()) {
+                nextTextPane.selectIcon("res/img/imgButton/StaticButton.jpg");
+            } else if (e.getSource() == restartTextPane && restartTextPane.isSelectable()) {
+                restartTextPane.selectIcon("res/img/imgButton/StaticButton.jpg");
+            }
+            repaintAll();
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            if (e.getSource() == responseTextPane1 && responseTextPane1.isSelectable() && !responseTextPane1.isSelected()) {
+                responseTextPane1.selectIcon("res/img/other/SelectedWindow.jpg");
+            } else if (e.getSource() == responseTextPane2 && responseTextPane2.isSelectable() && !responseTextPane2.isSelected()) {
+                responseTextPane2.selectIcon("res/img/other/SelectedWindow.jpg");
+            } else if (e.getSource() == responseTextPane3 && responseTextPane3.isSelectable() && !responseTextPane3.isSelected()) {
+                responseTextPane3.selectIcon("res/img/other/SelectedWindow.jpg");
+            } else if (e.getSource() == nextTextPane && nextTextPane.isSelectable()) {
+                nextTextPane.selectIcon("res/img/imgButton/SelectedButton.jpg");
+            } else if (e.getSource() == restartTextPane && restartTextPane.isSelectable()) {
+                restartTextPane.selectIcon("res/img/imgButton/SelectedButton.jpg");
+            }
+            repaintAll();
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            if (e.getSource() == responseTextPane1 && responseTextPane1.isSelectable() && !responseTextPane1.isSelected()) {
+                responseTextPane1.selectIcon("res/img/other/StaticWindow.jpg");
+            } else if (e.getSource() == responseTextPane2 && responseTextPane2.isSelectable() && !responseTextPane2.isSelected()) {
+                responseTextPane2.selectIcon("res/img/other/StaticWindow.jpg");
+            } else if (e.getSource() == responseTextPane3 && responseTextPane3.isSelectable() && !responseTextPane3.isSelected()) {
+                responseTextPane3.selectIcon("res/img/other/StaticWindow.jpg");
+            } else if (e.getSource() == nextTextPane && nextTextPane.isSelectable()) {
+                nextTextPane.selectIcon("res/img/imgButton/StaticButton.jpg");
+            } else if (e.getSource() == restartTextPane && restartTextPane.isSelectable()) {
+                restartTextPane.selectIcon("res/img/imgButton/StaticButton.jpg");
+            }
+            repaintAll();
+        }
+    };
     private String fontName = "Minecraftia";
     private String fontFileName = "Minecraftia.ttf";
-    private Font smallFont;
-    private Font regularFont;
+    private Font smallFont, regularFont;
     private int bBoringFeature06status;
     private int boringFeature06Index;
     JLabel backgroundLabel;
@@ -30,6 +181,7 @@ public class View extends Observable implements Observer, ActionListener {
 
     // Default Constructor
     public View() {
+        String fontFileName = "Minecraftia.ttf";
         loadFont(fontFileName, Font.TRUETYPE_FONT);
         this.regularFont = new Font(fontName, Font.PLAIN, 13);
         this.smallFont = new Font(fontName, Font.PLAIN, 9);
@@ -50,17 +202,16 @@ public class View extends Observable implements Observer, ActionListener {
         createFrame();
     }
 
-    public void loadFont(String ffn, int fontFormat){
+    private void loadFont(String ffn, int fontFormat) {
         URL url = getClass().getResource("res/fonts/" + ffn);
         InputStream fontStream = null;
+        Font font = null;
 
         try {
             fontStream = url.openStream();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        Font font = null;
 
         try {
             font = Font.createFont(fontFormat, fontStream);
@@ -71,82 +222,65 @@ public class View extends Observable implements Observer, ActionListener {
         }
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
-
-
-        //for testing
-        /*String fontFamilies[] = ge.getAvailableFontFamilyNames();
-        for (int i = 0; i < (fontFamilies.length); i++){
-            System.out.print(fontFamilies[i] + '\n');
-        }*/
-    }
-
-
-    private void boringFeature06(){
-
     }
 
     public void createFrame() {
-
         // Story Text area
-        dialogTextArea = new JTextArea("This is the area where the dialog of the person" +
-                "little red is talking to comes from");
+        dialogTextArea = new JTextArea();
         dialogTextArea.setFont(regularFont);
         dialogTextArea.setWrapStyleWord(true);
         dialogTextArea.setLineWrap(true);
         dialogTextArea.setEditable(false);
         dialogTextArea.setOpaque(false);
 
-
-
-
-        // BOTTOM Panel, user responses and buttons
-        // User Buttons
-        responseButton1 = new JButton();
-        responseButton1.setOpaque(false);
-        responseButton1.setContentAreaFilled(false);
-        responseButton1.setBorderPainted(false);
-        responseButton1.addActionListener(this);
-
-        responseButton2 = new JButton();
-        responseButton2.setOpaque(false);
-        responseButton2.setContentAreaFilled(false);
-        responseButton2.setBorderPainted(false);
-        responseButton2.addActionListener(this);
-
-        responseButton3 = new JButton();
-        responseButton3.setOpaque(false);
-        responseButton3.setContentAreaFilled(false);
-        responseButton3.setBorderPainted(false);
-        responseButton3.addActionListener(this);
+        dialogTextArea.setHighlighter(null);
+        dialogTextArea.setSize(new Dimension(260, 300));
+        dialogTextArea.setLocation(474, 38);
 
         // User response area
-        responseTextArea1 = new JTextArea("Response This is " +
-                "a test to see if all of the letters will fit in the text " +
-                "box on not go off of the screen dssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
-        responseTextArea1.setFont(regularFont);
-        responseTextArea1.setOpaque(false);
-        responseTextArea1.setLineWrap(true);
-        responseTextArea1.setWrapStyleWord(true);
-        responseTextArea1.setEditable(false);
+        responseTextPane1 = new SelectableTextPane("");
+        responseTextPane1.setFont(regularFont);
+        responseTextPane1.setEditable(false);
+        responseTextPane1.addMouseListener(paneML);
+        responseTextPane1.setSize(new Dimension(680, 48));
+        responseTextPane1.setLocation(59, 356);
 
-        responseTextArea2 = new JTextArea("Response 2");
-        responseTextArea2.setFont(regularFont);
-        responseTextArea2.setOpaque(false);
-        responseTextArea2.setLineWrap(true);
-        responseTextArea2.setWrapStyleWord(true);
-        responseTextArea2.setEditable(false);
+        responseTextPane2 = new SelectableTextPane("");
+        responseTextPane2.setFont(regularFont);
+        responseTextPane2.setEditable(false);
+        responseTextPane2.addMouseListener(paneML);
+        responseTextPane2.setSize(new Dimension(680, 48));
+        responseTextPane2.setLocation(59, 407);
 
-        responseTextArea3 = new JTextArea("Response 3");
-        responseTextArea3.setFont(regularFont);
-        responseTextArea3.setOpaque(false);
-        responseTextArea3.setLineWrap(true);
-        responseTextArea3.setWrapStyleWord(true);
-        responseTextArea3.setEditable(false);
+        responseTextPane3 = new SelectableTextPane("");
+        responseTextPane3.setFont(regularFont);
+        responseTextPane3.setEditable(false);
+        responseTextPane3.addMouseListener(paneML);
+        responseTextPane3.setSize(new Dimension(680, 48));
+        responseTextPane3.setLocation(59, 459);
+
+        nextTextPane = new SelectableTextPane("    Next");
+        nextTextPane.setFont(new Font(fontName, Font.PLAIN, 19));
+        nextTextPane.setEditable(false);
+        nextTextPane.addMouseListener(paneML);
+        nextTextPane.selectIcon("res/img/imgButton/DisabledButton.jpg");
+        nextTextPane.setSelectable(false);
+        nextTextPane.setSize(new Dimension(147, 37));
+        nextTextPane.setLocation(492, 525);
+
+        restartTextPane = new SelectableTextPane("  Restart");
+        restartTextPane.setFont(new Font(fontName, Font.PLAIN, 19));
+        restartTextPane.setEditable(false);
+        restartTextPane.addMouseListener(paneML);
+        restartTextPane.selectIcon("res/img/imgButton/StaticButton.jpg");
+        restartTextPane.setSize(new Dimension(147, 37));
+        restartTextPane.setLocation(159, 525);
 
         //Image area
-        storyImage = createImageIcon("res/img/imgLabel/000.jpg");
+        ImageIcon storyImage = createImageIcon("res/img/imgLabel/000.jpg");
         storyLabel = new JLabel("", storyImage, JLabel.CENTER);
-
+        storyLabel.setSize(new Dimension(400, 300));
+        storyLabel.setLocation(63, 38);
 
         // Create background
         ImageIcon backgroundImage = createImageIcon("res/img/other/Background.jpg");
@@ -154,11 +288,9 @@ public class View extends Observable implements Observer, ActionListener {
         backgroundLabel = new JLabel("", backgroundImage, JLabel.CENTER);
         backgroundPanel.add(backgroundLabel, BorderLayout.CENTER);
 
-
         // Create frame and resize and set location of components
-        game_frame = new JFrame("The Trails of Little Red");
-
-
+        JFrame game_frame = new JFrame("The Trails of Little Red");
+        game_frame.setIconImage(createImageIcon("res/img/other/GAMEICON.ico").getImage());
         JLayeredPane gameLayeredPane = new JLayeredPane();
 
         backgroundLabel.setFocusable(true);
@@ -189,37 +321,20 @@ public class View extends Observable implements Observer, ActionListener {
         });
 
         gameLayeredPane.setPreferredSize(new Dimension(800, 600));
-        game_frame.add(gameLayeredPane, BorderLayout.CENTER);
         backgroundLabel.setSize(gameLayeredPane.getPreferredSize());
         backgroundLabel.setLocation(0, 0);
         gameLayeredPane.add(backgroundLabel, JLayeredPane.DEFAULT_LAYER);
 
-        storyLabel.setSize(new Dimension(400, 300));
-        storyLabel.setLocation(63, 38);
-        dialogTextArea.setSize(new Dimension(264, 300));
-        dialogTextArea.setLocation(472, 38);
-        responseTextArea1.setSize(new Dimension(674, 42));
-        responseTextArea1.setLocation(62, 359);
-        responseButton1.setSize(new Dimension(674, 42));
-        responseTextArea1.add(responseButton1);
-
-        responseTextArea2.setSize(new Dimension(674, 42));
-        responseTextArea2.setLocation(62, 410);
-        responseButton2.setSize(new Dimension(674, 42));
-        responseTextArea2.add(responseButton2);
-
-        responseTextArea3.setSize(new Dimension(674, 42));
-        responseTextArea3.setLocation(62, 462);
-        responseButton3.setSize(new Dimension(674, 42));
-        responseTextArea3.add(responseButton3);
-
-
         // Place components on Frame
+        game_frame.add(gameLayeredPane, BorderLayout.CENTER);
         gameLayeredPane.add(storyLabel, JLayeredPane.PALETTE_LAYER);
         gameLayeredPane.add(dialogTextArea, JLayeredPane.PALETTE_LAYER);
-        gameLayeredPane.add(responseTextArea1, JLayeredPane.PALETTE_LAYER);
-        gameLayeredPane.add(responseTextArea2, JLayeredPane.PALETTE_LAYER);
-        gameLayeredPane.add(responseTextArea3, JLayeredPane.PALETTE_LAYER);
+        gameLayeredPane.add(responseTextPane1, JLayeredPane.PALETTE_LAYER);
+        gameLayeredPane.add(responseTextPane2, JLayeredPane.PALETTE_LAYER);
+        gameLayeredPane.add(responseTextPane3, JLayeredPane.PALETTE_LAYER);
+        gameLayeredPane.add(nextTextPane, JLayeredPane.PALETTE_LAYER);
+        gameLayeredPane.add(restartTextPane, JLayeredPane.PALETTE_LAYER);
+        game_frame.setResizable(false);
         game_frame.setVisible(true);
         game_frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         game_frame.pack();
@@ -239,7 +354,7 @@ public class View extends Observable implements Observer, ActionListener {
     public void update(Observable o, Object arg) {
         // Scene whose data members need to be loaded
         Scene s = (Scene) arg;
-        String[] temp = s.getChoiceText();
+        String[] sceneChoice = s.getChoiceText();
 
         System.out.println("View: Received Scene " + s.getID() + " from Model.");
 
@@ -250,87 +365,52 @@ public class View extends Observable implements Observer, ActionListener {
 
         if (((s.getID().equals("006")) || (s.getID().equals("007"))) && (bBoringFeature06status == 1)){
             //set story label to drunk red image
-            temp[2] = "Screw the paths, that sounds like a whole lot of work. I'd rather get super drunk with Granny's wine.";
+            sceneChoice[2] = "Screw the paths, that sounds like a whole lot of work. I'd rather get super drunk with Granny's wine.";
             bBoringFeature06status = 2;
         }
 
         // Update image
         storyLabel.setIcon(null);
         storyLabel.setIcon(s.getSceneImage());
+
         // Update text
-        if (s.getStoryText().length() > 346){
+        if (s.getStoryText().length() > 346) {
             dialogTextArea.setFont(smallFont);
-        }
-        else{
+        } else {
             dialogTextArea.setFont(regularFont);
         }
 
         dialogTextArea.setText(s.getStoryText());
 
-        if (!temp[0].isEmpty()){
-            responseButton1.setEnabled(true);
-            if ( temp[0].length() > 139){
-                responseTextArea1.setFont(smallFont);
-            }
-            else{
-                responseTextArea1.setFont(regularFont);
-            }
-            responseTextArea1.setText(temp[0]);
-        }
-        else{
-            responseButton1.setEnabled(false);
-            responseTextArea1.setText("");
-        }
-        if (!temp[1].isEmpty()){
-            responseButton2.setEnabled(true);
-            if ( temp[1].length() > 139){
-
-                responseTextArea2.setFont(smallFont);
-            }
-            else{
-                responseTextArea2.setFont(regularFont);
-            }
-            responseTextArea2.setText(temp[1]);
-        }
-        else{
-            responseButton2.setEnabled(false);
-            responseTextArea2.setText("");
-        }
-        if (!temp[2].isEmpty()){
-            responseButton3.setEnabled(true);
-            if ( temp[2].length() > 139){
-                responseTextArea3.setFont(smallFont);
-            }
-            else{
-                responseTextArea3.setFont(regularFont);
-            }
-            responseTextArea3.setText(temp[2]);
-        }
-        else{
-            responseButton3.setEnabled(false);
-            responseTextArea3.setText("");
-        }
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        backgroundLabel.requestFocusInWindow();
-
-        int response;
-        if (e.getSource() == responseButton1) {
-            response = 0;
-        } else if (e.getSource() == responseButton2) {
-            response = 1;
-        } else if ((e.getSource() == responseButton3) && (bBoringFeature06status == 2)) {
-            response = 3;
-        } else if (e.getSource() == responseButton3){
-            response = 2;
+        if (!sceneChoice[0].isEmpty()) {
+            responseTextPane1.setText(sceneChoice[0]);
+            responseTextPane1.setSelectable(true);
+            responseTextPane1.selectIcon("res/img/other/StaticWindow.jpg");
         } else {
-            response = -1;
+            responseTextPane1.setText("");
+            responseTextPane1.setSelectable(false);
+            responseTextPane1.selectIcon("res/img/other/DisabledWindow.jpg");
         }
 
-        // Notify Controller
-        setChanged();
-        notifyObservers(response);
+        if (!sceneChoice[1].isEmpty()) {
+            responseTextPane2.setText(sceneChoice[1]);
+            responseTextPane2.setSelectable(true);
+            responseTextPane2.selectIcon("res/img/other/StaticWindow.jpg");
+        } else {
+            responseTextPane2.setText("");
+            responseTextPane2.setSelectable(false);
+            responseTextPane2.selectIcon("res/img/other/DisabledWindow.jpg");
+        }
+
+        if (!sceneChoice[2].isEmpty()){
+            responseTextPane3.setText(sceneChoice[2]);
+            responseTextPane3.setSelectable(true);
+            responseTextPane3.selectIcon("res/img/other/StaticWindow.jpg");
+        } else{
+            responseTextPane3.setText("");
+            responseTextPane3.setSelectable(false);
+            responseTextPane3.selectIcon("res/img/other/DisabledWindow.jpg");
+        }
+
     }
 }
