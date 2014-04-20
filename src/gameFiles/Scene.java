@@ -1,11 +1,9 @@
 package gameFiles;
 
 import javax.swing.*;
+import java.io.*;
+import java.net.URL;
 import java.util.LinkedList;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 public class Scene {
 
@@ -52,8 +50,8 @@ public class Scene {
         storyText = "";
 
         try {
-            java.net.URL url = getClass().getResource("res/txt/txtStory/" + this.ID + ".txt");
-            BufferedReader in = new BufferedReader(new FileReader(url.getPath()));
+            InputStream isr = getClass().getResourceAsStream("res/txt/txtStory/" + this.ID + ".txt");
+            BufferedReader in = new BufferedReader(new InputStreamReader(isr));
             temp = in.readLine();
 
             while (temp != null){
@@ -66,9 +64,6 @@ public class Scene {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        //for testing
-        //System.out.print("story text: " + storyText + '\n');
     }
 
     private void loadChoices() {
@@ -84,8 +79,8 @@ public class Scene {
         }
 
         try {
-            java.net.URL url = getClass().getResource("res/txt/txtResponse/" + this.ID + ".txt");
-            BufferedReader in = new BufferedReader(new FileReader(url.getPath()));
+            InputStream isr = getClass().getResourceAsStream("res/txt/txtResponse/" + this.ID + ".txt");
+            BufferedReader in = new BufferedReader(new InputStreamReader(isr));
             temp = in.readLine();
 
             while (temp != null){
@@ -106,12 +101,6 @@ public class Scene {
             choiceSceneRedirect[choiceIndex] = temp.substring(location + 1, temp.length());
             choiceIndex++;
         }
-
-        //for testing
-        /*for(int i = 0; i <=2; i++){
-            System.out.print("choiceText[" + i + "]=" + choiceText[i] + '\n');
-            System.out.print("choiceSceneRedirect[" + i + "]=" + choiceSceneRedirect[i] + '\n');
-        }*/
     }
 
     public String getID() {
