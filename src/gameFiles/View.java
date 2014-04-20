@@ -277,8 +277,7 @@ public class View extends Observable implements Observer {
         restartTextPane.setLocation(159, 525);
 
         //Image area
-        ImageIcon storyImage = createImageIcon("res/img/imgLabel/000.jpg");
-        storyLabel = new JLabel("", storyImage, JLabel.CENTER);
+        storyLabel = new JLabel("", JLabel.CENTER);
         storyLabel.setSize(new Dimension(400, 300));
         storyLabel.setLocation(63, 38);
 
