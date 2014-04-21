@@ -21,7 +21,7 @@ public class View extends Observable implements Observer {
     private JTextArea dialogTextArea;
     private SelectableTextPane responseTextPane1, responseTextPane2, responseTextPane3, nextTextPane, restartTextPane;
     private String fontName = "Minecraftia";
-    private Font smallFont, regularFont;
+    private Font smallFont, mediumFont, regularFont;
     private int bBoringFeature06status;
     private int boringFeature06Index;
     private MouseListener paneML = new MouseListener() {
@@ -184,7 +184,8 @@ public class View extends Observable implements Observer {
         String fontFileName = "Minecraftia.ttf";
         loadFont(fontFileName, Font.TRUETYPE_FONT);
         this.regularFont = new Font(fontName, Font.PLAIN, 13);
-        this.smallFont = new Font(fontName, Font.PLAIN, 9);
+        this.mediumFont = new Font(fontName, Font.PLAIN, 12);
+        this.smallFont = new Font(fontName, Font.PLAIN, 10);
         bBoringFeature06status = 0;
         boringFeature06Index = 0;
         boringFeature06ref = new int[10];
@@ -377,7 +378,7 @@ public class View extends Observable implements Observer {
 
         if (((s.getID().equals("006")) || (s.getID().equals("007"))) && (bBoringFeature06status == 1)) {
             //set story label to drunk red image
-            sceneChoice[2] = "Screw the paths, that sounds like a whole lot of work. I'd rather get super drunk with Granny's wine.";
+            sceneChoice[2] = "Screw the paths, that sounds like a whole lot of work. I'd rather get super drunk with Granny's wine. (Become blackout drunk)";
             bBoringFeature06status = 2;
         }
 
@@ -386,8 +387,10 @@ public class View extends Observable implements Observer {
         storyLabel.setIcon(s.getSceneImage());
 
         // Update text
-        if (s.getStoryText().length() > 346) {
+        if (s.getStoryText().length() > 475) {
             dialogTextArea.setFont(smallFont);
+        } else if (s.getStoryText().length() > 382) {
+            dialogTextArea.setFont(mediumFont);
         } else {
             dialogTextArea.setFont(regularFont);
         }

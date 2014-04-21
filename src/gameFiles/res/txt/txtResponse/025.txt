@@ -1,2 +1,2 @@
 Go pick some flowers. Yes, you should continue on to Grandmothers, but the flowers are so pretty and you think Grandmother will like them.^027
-Don't pick flowers. You should really be getting to Grandmother's, especially if the hungry Fox is around.^011
+Don't pick flowers. You should really be getting to Grandmother's, especially if the hungry Fox is around.^029
